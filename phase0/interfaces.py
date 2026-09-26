@@ -19,12 +19,16 @@ class DownstreamConsistencyEvaluator(Protocol):
     def compare(self, original: Any, candidate: Any, task_spec: Dict) -> Dict:
         ...
 
-def zero_face_decision(detector_results, policy='reject'):
+def zero_face_decision(detector_results, policy='reject', known_face_evidence=False):
     """No detector can prove absence. 'continue' is only an explicit business policy."""
     if policy not in ('reject', 'continue_if_all_clear'):
         raise ValueError('Unknown zero-face policy')
+    if known_face_evidence:
+        return 'reject_known_face_evidence'
     if len(detector_results) < 2:
         return 'reject_insufficient_detectors'
-    if any(d.get('status') != 'ok' or d.get('suspected_faces', 0) != 0 for d in detector_results):
+    if any(not isinstance(d, dict) or d.get('status') != 'ok'
+           or type(d.get('suspected_faces')) is not int
+           or d['suspected_faces'] != 0 for d in detector_results):
         return 'reject_face_suspected_or_detector_error'
     return 'continue_no_face_policy' if policy == 'continue_if_all_clear' else 'reject_zero_face_policy'

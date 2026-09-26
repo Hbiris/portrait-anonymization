@@ -9,6 +9,14 @@ from utility_review import IndependentVisualReviewValidator
 ROOT=pathlib.Path(__file__).resolve().parent
 
 class PolicyTests(unittest.TestCase):
+    def test_missing_or_malformed_count_is_not_confirmation(self):
+        clear={'status':'ok','suspected_faces':0}
+        for count in (None,False,'0',-1,float('nan')):
+            self.assertTrue(zero_face_decision([clear,{'status':'ok','suspected_faces':count}], 'continue_if_all_clear').startswith('reject'))
+        self.assertTrue(zero_face_decision([clear,{'status':'ok'}], 'continue_if_all_clear').startswith('reject'))
+    def test_known_face_blocks_two_negative_detectors(self):
+        clear=[{'status':'ok','suspected_faces':0}]*2
+        self.assertEqual(zero_face_decision(clear,'continue_if_all_clear',known_face_evidence=True),'reject_known_face_evidence')
     def test_zero_faces_configurable(self):
         clear=[{'status':'ok','suspected_faces':0}]*2
         self.assertEqual(zero_face_decision(clear),'reject_zero_face_policy')
@@ -27,6 +35,7 @@ class PolicyTests(unittest.TestCase):
         self.assertFalse(value['pass'])
 
 class EvidenceTests(unittest.TestCase):
+    @unittest.skipUnless((ROOT/'artifacts/run-context/reviewed-results.json').exists(), 'Requires local baseline evidence')
     def test_actual_run_complete_and_no_release(self):
         rows=json.loads((ROOT/'artifacts/run-context/reviewed-results.json').read_text())
         self.assertEqual(len(rows),16)
@@ -41,6 +50,7 @@ class EvidenceTests(unittest.TestCase):
                     self.assertTrue(math.isfinite(score));self.assertGreaterEqual(score,-1.00001);self.assertLessEqual(score,1.00001)
                     self.assertAlmostEqual(identity['self_similarity_control'],1,places=4)
                     self.assertIsNone(identity['pass'])
+    @unittest.skipUnless((ROOT/'data/samples.json').exists(), 'Requires local sample manifest')
     def test_lowlight_and_rotation_are_not_independent_photos(self):
         rows=json.loads((ROOT/'data/samples.json').read_text())
         self.assertEqual(sum(r['transformed'] for r in rows),4)
