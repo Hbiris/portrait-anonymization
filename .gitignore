@@ -1,0 +1,13 @@
+phase0/.bootstrap/
+phase0/.python/
+phase0/.venv/
+phase0/.uv-cache/
+phase0/vendor/
+phase0/models/
+phase0/data/
+phase0/artifacts/
+__pycache__/
+phase0/.*/
+phase0/gallery*.html
+.document-work/
+.DS_Store

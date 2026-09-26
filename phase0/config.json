@@ -1,0 +1,12 @@
+{
+  "device": "cpu",
+  "seed": 42,
+  "zero_face_policy": "reject",
+  "identity_threshold": null,
+  "state_thresholds": null,
+  "threshold_status": "uncalibrated_measurements_only",
+  "release_enabled": false,
+  "utility_required": ["eye_state", "mouth_state", "facial_expression", "head_pose"],
+  "synthetic_appearance_not_valid_care_evidence": ["skin_color", "texture", "wrinkles", "lip_color"],
+  "downstream_consistency_status": "not_implemented"
+}
