@@ -1,0 +1,4351 @@
+{
+  "schema_version": 1,
+  "arms": [
+    "yunet_context",
+    "retina_unaligned",
+    "retina_aligned"
+  ],
+  "seed": 42,
+  "release_allowed": false,
+  "prepared_manifest_sha256": "555cf82e8f37dced9fa82c66c2ae89f3bfcb2acd3a0c3a6787c0778d5382ccfd",
+  "sample_manifest_sha256": "9cd46ae57887b56c3421281f0cff5c1978a76096f968a6bb041846338b6ea32f",
+  "generator_checkpoint_sha256": "eba49bd525033b55022a91d6b4398ab088b51339fd6895db7afdd648d776eec9",
+  "git_commit": "8026059383a5850b8029baf06ed02397941356e5",
+  "code_sha256": {
+    "compare_preprocessing.py": "37924a8b1fd9ebe2dda3cd18ed67597a0db78ffe2b0a5481e9e3599f10413ca7",
+    "spike.py": "59f1e793bcdc3d88c3c2b224b26a128f00e18f779ed7e01c4b0842717e8ad8a6",
+    "experiment_utils.py": "af273e5bb2a17640cc432cbedda1ee7b072e34ed39f42baa277f55ecb78290f1"
+  },
+  "recognition_model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+  "retinaface": {
+    "environment": {
+      "python": "3.8.20 (default, Oct  2 2024, 16:12:59) \n[Clang 18.1.8 ]",
+      "platform": "macOS-15.3.2-arm64-arm-64bit",
+      "tensorflow": "2.13.0",
+      "retina-face": "0.0.13",
+      "numpy": "1.24.3",
+      "opencv": "4.8.1",
+      "device": "CPU",
+      "intra_threads": 4,
+      "inter_threads": 1
+    },
+    "weight": {
+      "source": "https://github.com/serengil/deepface_models/releases/download/v1.0/retinaface.h5",
+      "sha256": "ecb2393a89da3dd3d6796ad86660e298f62a0c8ae7578d92eb6af14e0bb93adf",
+      "bytes": 118667368
+    },
+    "official_facecrop_sha256": "f80f63e66769d72057e7985b0edf69dbb43b0251f780eb0c8b48e317972db52e",
+    "retinaface_source_sha256": "e7132f604b1bc3156a40711b98d2dc9941dc94b44c846a59875618755f34fea1",
+    "threshold": 0.9,
+    "allow_upscaling": true,
+    "margin": 0,
+    "cached_identical_detections_for_alignment_pair": true,
+    "release_allowed": false
+  },
+  "generation_environment": {
+    "torch": "2.2.2",
+    "device": "cpu",
+    "threads": 4
+  },
+  "state_pose_scope": "Input crop vs generated crop, after any preprocessing alignment; no inverse warp",
+  "arm_difference": "YuNet uses .6 score, 1/.5 scales, 20% margin and 32px size gate; RetinaFace uses official .9 threshold, upscaling, zero margin, official crop/alignment with no additional size gate",
+  "samples": [
+    {
+      "id": "s01",
+      "input_path": "data/originals/s01.jpg",
+      "input_sha256": "0b26966cfd3250c9a5d4b9054dfb14d926261393ad91e3a9936c67c1d16e6bfa",
+      "source_group": "s01",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              70.78616333007812,
+              92.11663818359375,
+              897.4165344238281,
+              1134.9393920898438
+            ],
+            "confidence": 0.7487058043479919,
+            "crop_xyxy": [
+              0,
+              0,
+              960,
+              1064
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s01-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s01-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s01-f0-candidate.png"
+            },
+            "source_sha256": "5164e0d1200dfde80f3ac090199b93edf41e34b5b73be8bbe9529b75dce38424",
+            "candidate_sha256": "064d89bcde4ea8d24a47e88257a84a1332e0c304bfc9ed78629c08b1254a4478",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.1813011251106218,
+              "self_similarity_control": 0.9999999532574293,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.30393786202734246,
+                "ear_263_side": 0.27767615492091335,
+                "mouth_aperture_ratio": 0.2436211636414818,
+                "brow_33_side_ratio": 0.5849361686782342,
+                "brow_263_side_ratio": 0.5190827551951473,
+                "pose_reprojection_rmse_px": 6.848646303399936,
+                "pose_reprojection_normalized": 0.0268466563659294,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9966874430999463,
+                    -0.0803290056518043,
+                    -0.012704000074181664
+                  ],
+                  [
+                    -0.07693570291376416,
+                    -0.9819294015060216,
+                    0.17290329110572525
+                  ],
+                  [
+                    -0.02636358063802102,
+                    -0.1713531479402072,
+                    -0.984856873005882
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -170.13003182274701,
+                  1.5106969366124114,
+                  -4.413988605106207
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.32146127401983154,
+                "ear_263_side": 0.2913293848451033,
+                "mouth_aperture_ratio": 0.22112345580407872,
+                "brow_33_side_ratio": 0.6178014179455682,
+                "brow_263_side_ratio": 0.4965692723536803,
+                "pose_reprojection_rmse_px": 3.44992857362248,
+                "pose_reprojection_normalized": 0.013498997216722094,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9972427510194685,
+                    -0.07241362473896257,
+                    -0.016222283787689487
+                  ],
+                  [
+                    -0.07020743371584354,
+                    -0.9914667141258839,
+                    0.10983929639003591
+                  ],
+                  [
+                    -0.02403771599297784,
+                    -0.1083975171882983,
+                    -0.9938169682981135
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -173.77524657392382,
+                  1.3773923428431971,
+                  -4.02706713801379
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.01752341199248908,
+                "ear_263_side": 0.013653229924189936,
+                "mouth_aperture_ratio": 0.022497707837403097,
+                "brow_33_side_ratio": 0.03286524926733403,
+                "brow_263_side_ratio": 0.022513482841467036
+              },
+              "head_pose_difference_degrees": 3.677784528491583,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.9731879234313965,
+            "initial_baseline_candidate_sha256": "064d89bcde4ea8d24a47e88257a84a1332e0c304bfc9ed78629c08b1254a4478",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [],
+        "retina_aligned": []
+      },
+      "retina_preparation_status": "zero_detections_no_release",
+      "spatial_pairs_yunet_to_retina": [],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "zero_detections_known_face_no_release",
+        "retina_aligned": "zero_detections_known_face_no_release"
+      }
+    },
+    {
+      "id": "s02",
+      "input_path": "data/originals/s02.jpg",
+      "input_sha256": "be423a9e6e8c03d3c37f930d856303513cbea293916ae3c83daed7d3c9020a06",
+      "source_group": "s02",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              44.665321350097656,
+              223.20542907714844,
+              124.47406768798828,
+              340.2159652709961
+            ],
+            "confidence": 0.8822160363197327,
+            "crop_xyxy": [
+              28,
+              199,
+              141,
+              364
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s02-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s02-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s02-f0-candidate.png"
+            },
+            "source_sha256": "0ce1250d10268c835fe97a9ee8c39f2bdf5389f2efe921f6e2c3aaeb4453f9d4",
+            "candidate_sha256": "26780feea1190937cbda4469903946d4e1cf5dc334ae049b86ff9cd3a8b87bb2",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.05459677610451763,
+              "self_similarity_control": 1.0000000358513716,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.41523750965847445,
+                "ear_263_side": 0.2717686762926911,
+                "mouth_aperture_ratio": 0.029289827234221983,
+                "brow_33_side_ratio": 1.1003336425437378,
+                "brow_263_side_ratio": 0.6424728639741655,
+                "pose_reprojection_rmse_px": 12.528871858303752,
+                "pose_reprojection_normalized": 0.08835073315966904,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7324734023216647,
+                    -0.11784051125034381,
+                    -0.6705194469958212
+                  ],
+                  [
+                    0.017253804976333838,
+                    -0.9813760481611494,
+                    0.19132004157809473
+                  ],
+                  [
+                    -0.680576976619958,
+                    -0.15170585355833455,
+                    -0.7167986557541624
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -168.05005653604408,
+                  42.888746500044896,
+                  1.3493833672814388
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.4058108450842626,
+                "ear_263_side": 0.2676613638365456,
+                "mouth_aperture_ratio": 0.016022575002146055,
+                "brow_33_side_ratio": 1.2564918233612354,
+                "brow_263_side_ratio": 0.5208435565660028,
+                "pose_reprojection_rmse_px": 14.839388411996062,
+                "pose_reprojection_normalized": 0.08804829086529901,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7797778853822604,
+                    -0.16032632625593346,
+                    -0.6051792449994019
+                  ],
+                  [
+                    -0.013243836311937138,
+                    -0.9706611836821187,
+                    0.24008637464998056
+                  ],
+                  [
+                    -0.6259161687227074,
+                    -0.17919915067350123,
+                    -0.7590234608557123
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -166.7161861469719,
+                  38.74946343856328,
+                  -0.9730244847594094
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.009426664574211874,
+                "ear_263_side": 0.004107312456145484,
+                "mouth_aperture_ratio": 0.013267252232075928,
+                "brow_33_side_ratio": 0.15615818081749766,
+                "brow_263_side_ratio": 0.12162930740816269
+              },
+              "head_pose_difference_degrees": 5.324843532688853,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.3282098770141602,
+            "initial_baseline_candidate_sha256": "26780feea1190937cbda4469903946d4e1cf5dc334ae049b86ff9cd3a8b87bb2",
+            "initial_baseline_pixel_artifact_identical": true
+          },
+          {
+            "index": 1,
+            "bbox_xyxy": [
+              225.09912109375,
+              208.97665405273438,
+              359.7030487060547,
+              362.9382019042969
+            ],
+            "confidence": 0.6467342972755432,
+            "crop_xyxy": [
+              198,
+              178,
+              387,
+              394
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.027065038681030273
+          },
+          {
+            "index": 2,
+            "bbox_xyxy": [
+              494.43878173828125,
+              132.06192016601562,
+              656.2389831542969,
+              366.0235900878906
+            ],
+            "confidence": 0.9151898622512817,
+            "crop_xyxy": [
+              462,
+              85,
+              689,
+              413
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s02-f2-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s02-f2-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s02-f2-candidate.png"
+            },
+            "source_sha256": "d7978b81fb92826f8d2cff9660c76f2bf50187f6f9ccbd97cf19cd50112683a6",
+            "candidate_sha256": "53006173cb2db28979292c32e7c4f72ec1fec49a309b1f223b7ef34919c3828a",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": -0.07256892930217873,
+              "self_similarity_control": 1.000000042376314,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "indeterminate",
+              "reason": "state_landmarks_or_pose_missing",
+              "original": {
+                "ear_33_side": 0.4211074422550935,
+                "ear_263_side": 0.18048753304104045,
+                "mouth_aperture_ratio": 0.01271222995419257,
+                "brow_33_side_ratio": 1.3969105076284627,
+                "brow_263_side_ratio": 0.935967661978455,
+                "pose_reprojection_rmse_px": 10.937488230739259,
+                "pose_reprojection_normalized": 0.10960338323036084,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7465804673935281,
+                    -0.1646007323510079,
+                    -0.6446116696244127
+                  ],
+                  [
+                    -0.267857912344596,
+                    -0.9612789572401629,
+                    -0.06476808752510681
+                  ],
+                  [
+                    -0.608990758961789,
+                    0.2210189251552388,
+                    -0.7617617017298567
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  163.82034603491692,
+                  37.51656398920314,
+                  -19.73695575928851
+                ]
+              },
+              "candidate": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "validation_indeterminate",
+            "elapsed_seconds": 1.5652689933776855,
+            "initial_baseline_candidate_sha256": "53006173cb2db28979292c32e7c4f72ec1fec49a309b1f223b7ef34919c3828a",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              45,
+              219,
+              136,
+              345
+            ],
+            "confidence": 0.9995042085647583,
+            "prepared_crop_sha256": "6c4f8922840c379aeac39a66ed59ffd4001e5e3bc729167d56dc6b7fe8d0ecab",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s02-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s02-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s02-f0-candidate.png"
+            },
+            "source_sha256": "e2b3372056bdcf410495705e259ae053fd400791738c671e61052b17ff7f9ae3",
+            "candidate_sha256": "bebce4abcdd2b9e92057c27ebec66a4045a109c2aae33fd29a059569d9b2d9fc",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.09395928410231136,
+              "self_similarity_control": 0.9999999585568276,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.3965642332065646,
+                "ear_263_side": 0.25934999039786244,
+                "mouth_aperture_ratio": 0.01782553438524488,
+                "brow_33_side_ratio": 1.0096196305293323,
+                "brow_263_side_ratio": 0.5629852330943002,
+                "pose_reprojection_rmse_px": 15.890631802851813,
+                "pose_reprojection_normalized": 0.08665310983608689,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7822084621874027,
+                    -0.07300567303370095,
+                    -0.618724569891413
+                  ],
+                  [
+                    0.04311232740604278,
+                    -0.9843871544765679,
+                    0.17065537591051716
+                  ],
+                  [
+                    -0.6215233293353128,
+                    -0.16016273538630044,
+                    -0.7668485178218225
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -168.20288277413422,
+                  38.42746158517157,
+                  3.1547315104387628
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.34598430046373535,
+                "ear_263_side": 0.30653907480900106,
+                "mouth_aperture_ratio": 0.014446662429844805,
+                "brow_33_side_ratio": 1.3366271249440802,
+                "brow_263_side_ratio": 0.5692346570348795,
+                "pose_reprojection_rmse_px": 15.386255935619953,
+                "pose_reprojection_normalized": 0.08385059152675516,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7769117209377162,
+                    -0.06929044779816196,
+                    -0.6257851162448061
+                  ],
+                  [
+                    0.015126339452210456,
+                    -0.9915846580659124,
+                    0.12857316883037492
+                  ],
+                  [
+                    -0.6294278129574288,
+                    -0.1093558399548821,
+                    -0.7693256323192347
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -171.90988485066256,
+                  39.00792021931602,
+                  1.1153981851269756
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.05057993274282924,
+                "ear_263_side": 0.047189084411138615,
+                "mouth_aperture_ratio": 0.003378871955400077,
+                "brow_33_side_ratio": 0.32700749441474786,
+                "brow_263_side_ratio": 0.006249423940579368
+              },
+              "head_pose_difference_degrees": 2.963025894846716,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.44858717918396
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              495,
+              115,
+              661,
+              369
+            ],
+            "confidence": 0.999300479888916,
+            "prepared_crop_sha256": "e151a9e51e185449842738d51d2d53436ad96baf4317b9ef8d4b0c8ed7f3c722",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s02-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s02-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s02-f1-candidate.png"
+            },
+            "source_sha256": "d83bacdb4f0cc3b7237e652843b3eddd8593de017684a4e1c1e1a80bad2e7a25",
+            "candidate_sha256": "ba2c943a87f0f57be5078a8439bf43c1bf2972c5ea851b0961063a038e14591b",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": -0.1797992626082987,
+              "self_similarity_control": 0.9999999217932327,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.6908001915292438,
+                "ear_263_side": 0.22680282653807451,
+                "mouth_aperture_ratio": 0.03526175376842451,
+                "brow_33_side_ratio": 2.5701633072045094,
+                "brow_263_side_ratio": 0.6829022198381461,
+                "pose_reprojection_rmse_px": 12.238255190050236,
+                "pose_reprojection_normalized": 0.1201127084413703,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.6696682419978494,
+                    -0.09849992843097596,
+                    -0.7360993205801802
+                  ],
+                  [
+                    -0.2431118794805501,
+                    -0.9656295509922529,
+                    -0.09195751359152007
+                  ],
+                  [
+                    -0.7017414479100865,
+                    0.2405355157759301,
+                    -0.6705979465637086
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  160.26769293901742,
+                  44.566888125030694,
+                  -19.952583579492085
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.3990574944589034,
+                "ear_263_side": 0.3063962658287131,
+                "mouth_aperture_ratio": 0.003372427499959674,
+                "brow_33_side_ratio": 1.1647456825635951,
+                "brow_263_side_ratio": 0.7001463531604764,
+                "pose_reprojection_rmse_px": 12.108303544805862,
+                "pose_reprojection_normalized": 0.07911453457008792,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8659770068044587,
+                    -0.23817041208790213,
+                    -0.43972568550389385
+                  ],
+                  [
+                    -0.24744479021325771,
+                    -0.9681915061789513,
+                    0.037098290516551766
+                  ],
+                  [
+                    -0.43457438889367067,
+                    0.07668156342180624,
+                    -0.8973656101884449
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  175.1158339171948,
+                  25.75821467709811,
+                  -15.94678984324078
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.2917426970703404,
+                "ear_263_side": 0.07959343929063858,
+                "mouth_aperture_ratio": 0.031889326268464836,
+                "brow_33_side_ratio": 1.4054176246409142,
+                "brow_263_side_ratio": 0.017244133322330213
+              },
+              "head_pose_difference_degrees": 22.78763547286233,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.3090629577636719
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              45,
+              219,
+              136,
+              345
+            ],
+            "confidence": 0.9995042085647583,
+            "prepared_crop_sha256": "e5ed68df68d12a6c55190f2bf38db40de78e074fbcd2007a9a925378e3be22fd",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s02-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s02-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s02-f0-candidate.png"
+            },
+            "source_sha256": "2a2b5fd269247eb84282a01e3a5b9d0ef69c2a3dbbcabfda52d6c8e64df0912a",
+            "candidate_sha256": "61655516c109d9ea2593296758b67318c38a66353bd6a6b614b608eb624f689a",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": -0.029061657257443585,
+              "self_similarity_control": 0.9999999675661115,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.30008312247682245,
+                "ear_263_side": 0.24703649961255825,
+                "mouth_aperture_ratio": 0.01836577072279271,
+                "brow_33_side_ratio": 1.0323135757414954,
+                "brow_263_side_ratio": 0.544559585893137,
+                "pose_reprojection_rmse_px": 15.35236086815161,
+                "pose_reprojection_normalized": 0.08270153490269364,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.787903119991629,
+                    -0.15230628801465812,
+                    -0.5966669658516816
+                  ],
+                  [
+                    -0.009700524442240246,
+                    -0.9718805821675273,
+                    0.2352743798870882
+                  ],
+                  [
+                    -0.6157228055976173,
+                    -0.1795854354810111,
+                    -0.767225193818669
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -166.82588243284965,
+                  38.004459422121116,
+                  -0.7053799067338292
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.33074255678002595,
+                "ear_263_side": 0.3277731322340428,
+                "mouth_aperture_ratio": 0.02351853260899345,
+                "brow_33_side_ratio": 1.1854915521512477,
+                "brow_263_side_ratio": 0.6096492664404584,
+                "pose_reprojection_rmse_px": 13.537800452574848,
+                "pose_reprojection_normalized": 0.07628340761284372,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7730525786272715,
+                    -0.17286206417202687,
+                    -0.6103346765897476
+                  ],
+                  [
+                    -0.06355718778865452,
+                    -0.9784194250051216,
+                    0.19661106950791193
+                  ],
+                  [
+                    -0.6311498986438352,
+                    -0.11319953861581475,
+                    -0.7673562861533377
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -171.60831437231815,
+                  39.13501101646127,
+                  -4.700051275982867
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.030659434303203503,
+                "ear_263_side": 0.08073663262148456,
+                "mouth_aperture_ratio": 0.00515276188620074,
+                "brow_33_side_ratio": 0.15317797640975228,
+                "brow_263_side_ratio": 0.06508968054732134
+              },
+              "head_pose_difference_degrees": 4.034621775644461,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.6797301769256592
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              495,
+              115,
+              661,
+              369
+            ],
+            "confidence": 0.999300479888916,
+            "prepared_crop_sha256": "51ff776674c759dd8afc3de1c6efd6ff4b97a5e7ed0ce9e069004efd45762ccf",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.031078815460205078
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.8082723337508095
+        },
+        {
+          "a": 2,
+          "b": 1,
+          "iou": 0.8919132522657323
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s03",
+      "input_path": "data/originals/s03.jpg",
+      "input_sha256": "2f65df2faca771ba4cb333896a8ef39f6395d7d6f605bcb214727475950f3884",
+      "source_group": "s03",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              327.24554443359375,
+              320.3099365234375,
+              534.3664093017578,
+              577.1240844726562
+            ],
+            "confidence": 0.8541169762611389,
+            "crop_xyxy": [
+              285,
+              268,
+              576,
+              629
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s03-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s03-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s03-f0-candidate.png"
+            },
+            "source_sha256": "b640a90a0255b165b3fe6da2b8fc5576650731bcc925b05f6a81958d58e8c83c",
+            "candidate_sha256": "c0b50c84b6d1441df8de5b08f5f2e18cef334bf90e94f18898a8374b38b48fe4",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.09542185459395114,
+              "self_similarity_control": 0.9999999456194928,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.2961075787453405,
+                "ear_263_side": 0.6880814803170294,
+                "mouth_aperture_ratio": 0.02309391583988428,
+                "brow_33_side_ratio": 0.5179694102952063,
+                "brow_263_side_ratio": 2.572029229273747,
+                "pose_reprojection_rmse_px": 7.721038888246689,
+                "pose_reprojection_normalized": 0.06922990881648766,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.6793703999362593,
+                    -0.2917801973576253,
+                    0.6732905584666938
+                  ],
+                  [
+                    -0.21632118913919637,
+                    -0.9564055842467246,
+                    -0.19619760842346018
+                  ],
+                  [
+                    0.7011854268450332,
+                    -0.012356166542525138,
+                    -0.7128718835306398
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -179.0069950496236,
+                  -44.52218850347772,
+                  -17.662214387058217
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.1355171115646978,
+                "ear_263_side": 0.3150660774922468,
+                "mouth_aperture_ratio": 0.22766301904507644,
+                "brow_33_side_ratio": 0.937828852280842,
+                "brow_263_side_ratio": 1.3728381036549346,
+                "pose_reprojection_rmse_px": 16.223596119333997,
+                "pose_reprojection_normalized": 0.1046124473655644,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8215350801594486,
+                    -0.2078807185315581,
+                    0.5309102738977757
+                  ],
+                  [
+                    -0.015936654212434162,
+                    -0.9391719940135561,
+                    -0.34307723432649107
+                  ],
+                  [
+                    0.5699352025624679,
+                    0.27338904975035827,
+                    -0.774875662514106
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  160.56630899743612,
+                  -34.74570735518141,
+                  -1.111320183649615
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.16059046718064268,
+                "ear_263_side": 0.3730154028247826,
+                "mouth_aperture_ratio": 0.20456910320519217,
+                "brow_33_side_ratio": 0.41985944198563574,
+                "brow_263_side_ratio": 1.1991911256188126
+              },
+              "head_pose_difference_degrees": 18.749491268617554,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9443738460540771,
+            "initial_baseline_candidate_sha256": "c0b50c84b6d1441df8de5b08f5f2e18cef334bf90e94f18898a8374b38b48fe4",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              339,
+              324,
+              517,
+              575
+            ],
+            "confidence": 0.9995611310005188,
+            "prepared_crop_sha256": "3a905e8fa3003b20c5a7275a7dc2ae76d7ca971d4c9a455a9dbccaa7ff90f88f",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.03655505180358887
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              339,
+              324,
+              517,
+              575
+            ],
+            "confidence": 0.9995611310005188,
+            "prepared_crop_sha256": "efd7a623479f0c535c48a2eaad7c0cbf9fc7e2cb4857ef1541b1e763c9b50e4e",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.02596306800842285
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.8399451513777636
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s04",
+      "input_path": "data/originals/s04.jpg",
+      "input_sha256": "db6ce43111ff114ae3f6271fe32aad3f8572e820ea4b3a57422039b0dfc18e1c",
+      "source_group": "s03",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              297.7234802246094,
+              395.26861572265625,
+              496.32627868652344,
+              661.4728698730469
+            ],
+            "confidence": 0.8608114719390869,
+            "crop_xyxy": [
+              258,
+              342,
+              537,
+              715
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.02719402313232422
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              295,
+              376,
+              496,
+              655
+            ],
+            "confidence": 0.9996418952941895,
+            "prepared_crop_sha256": "a7948df3efa259f49a46bfb8b9ec3db98bcfeb835adfe8df0427bd5736a9adaf",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.025468111038208008
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              295,
+              376,
+              496,
+              655
+            ],
+            "confidence": 0.9996418952941895,
+            "prepared_crop_sha256": "f454e7af7d183d51f4e8082ef7c8b21417f614d0bf99321c1ed16ebeca71a717",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.026794910430908203
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.8964192333732195
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s05",
+      "input_path": "data/originals/s05.jpg",
+      "input_sha256": "55053959ddf203cc558806d26246162813e4b66fe5dd495d9ff2f53d528a1bd1",
+      "source_group": "s05",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              450.73193359375,
+              262.7091369628906,
+              543.8971633911133,
+              385.3991470336914
+            ],
+            "confidence": 0.9189240336418152,
+            "crop_xyxy": [
+              432,
+              238,
+              563,
+              410
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s05-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s05-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s05-f0-candidate.png"
+            },
+            "source_sha256": "5f9eb26613bde23c17baf1f501b9b8f73e02091337fe58633b2f7ad3473c82d6",
+            "candidate_sha256": "956cc27dab26c062fa1a97d4977cfb0532ea477d8a8bfdec4f7e8b7363c52ada",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.12269030653033042,
+              "self_similarity_control": 1.000000032493872,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.3244151585133625,
+                "ear_263_side": 0.2820965177152139,
+                "mouth_aperture_ratio": 0.0036201562012330283,
+                "brow_33_side_ratio": 0.6700871523874881,
+                "brow_263_side_ratio": 0.47937825736271267,
+                "pose_reprojection_rmse_px": 10.227799014237224,
+                "pose_reprojection_normalized": 0.05567707170282496,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9060477512354118,
+                    0.10328412095888936,
+                    -0.41037770753173486
+                  ],
+                  [
+                    0.1584971396093897,
+                    -0.9819946406226641,
+                    0.10278707372041755
+                  ],
+                  [
+                    -0.39237243687202883,
+                    -0.15817368980369154,
+                    -0.9061042736004457
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -170.09796404823516,
+                  23.102200121321143,
+                  9.922489322453421
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.34138688664081007,
+                "ear_263_side": 0.2784376865538014,
+                "mouth_aperture_ratio": 0.005173555906821126,
+                "brow_33_side_ratio": 0.6777561563741931,
+                "brow_263_side_ratio": 0.5003981293133792,
+                "pose_reprojection_rmse_px": 11.913325269985863,
+                "pose_reprojection_normalized": 0.062328803523560856,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9068555556270947,
+                    0.07366430320439951,
+                    -0.4149536982142499
+                  ],
+                  [
+                    0.10607472015812594,
+                    -0.9928040049037469,
+                    0.055573029343885125
+                  ],
+                  [
+                    -0.4078739449531531,
+                    -0.09441280782018581,
+                    -0.9081437478438427
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.06471491303205,
+                  24.071349140944957,
+                  6.671559929429535
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.016971728127447572,
+                "ear_263_side": 0.003658831161412468,
+                "mouth_aperture_ratio": 0.0015533997055880975,
+                "brow_33_side_ratio": 0.007669003986705003,
+                "brow_263_side_ratio": 0.02101987195066657
+              },
+              "head_pose_difference_degrees": 4.113217783985561,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9956469535827637,
+            "initial_baseline_candidate_sha256": "956cc27dab26c062fa1a97d4977cfb0532ea477d8a8bfdec4f7e8b7363c52ada",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              447,
+              248,
+              545,
+              383
+            ],
+            "confidence": 0.9993853569030762,
+            "prepared_crop_sha256": "14e47f2b53f18bbbff6fb265d92ce8665b882d5b2a1a4cf304082e7a78e356bb",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s05-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s05-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s05-f0-candidate.png"
+            },
+            "source_sha256": "a67238bcf8817cb98bf6e8850fcdb422ea848616334c8dd98b42c0ae3b72610a",
+            "candidate_sha256": "512dd1bcb67548f277ae9fe68dc4385eef745fed01c503d487bb8d598405145a",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.21841158012534834,
+              "self_similarity_control": 1.0000000262260471,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.3074745986637867,
+                "ear_263_side": 0.2574764148113688,
+                "mouth_aperture_ratio": 0.0037377726962066495,
+                "brow_33_side_ratio": 0.6494412346800825,
+                "brow_263_side_ratio": 0.5294504746564086,
+                "pose_reprojection_rmse_px": 13.41892438412172,
+                "pose_reprojection_normalized": 0.05678665080352473,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9420926232453202,
+                    0.09298218802578018,
+                    -0.322204596392866
+                  ],
+                  [
+                    0.12435014345409467,
+                    -0.9891572246997599,
+                    0.07813466994372578
+                  ],
+                  [
+                    -0.3114458717814338,
+                    -0.11367628395671345,
+                    -0.9434400730391387
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -173.12948059300248,
+                  18.146387055925477,
+                  7.519206718409787
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.34108975210953935,
+                "ear_263_side": 0.25184090268646064,
+                "mouth_aperture_ratio": 0.002334596588946764,
+                "brow_33_side_ratio": 0.6684853016590382,
+                "brow_263_side_ratio": 0.4833037846252045,
+                "pose_reprojection_rmse_px": 13.230377317591472,
+                "pose_reprojection_normalized": 0.055682725454502424,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9244215488210208,
+                    0.08465941044042806,
+                    -0.3718569406360785
+                  ],
+                  [
+                    0.11607761959030864,
+                    -0.991247080420898,
+                    0.0628904745354445
+                  ],
+                  [
+                    -0.36327783624327054,
+                    -0.10130157837331527,
+                    -0.9261572241868454
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -173.75789418650115,
+                  21.30163617171622,
+                  7.157048556240416
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.033615153445752666,
+                "ear_263_side": 0.005635512124908149,
+                "mouth_aperture_ratio": 0.0014031761072598853,
+                "brow_33_side_ratio": 0.019044066978955665,
+                "brow_263_side_ratio": 0.046146690031204085
+              },
+              "head_pose_difference_degrees": 3.2137035225709067,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.97245192527771
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              447,
+              248,
+              545,
+              383
+            ],
+            "confidence": 0.9993853569030762,
+            "prepared_crop_sha256": "508f1c94afac01d2fb1568251ea5fd1c097aaec7c344ed52e03007a2b510cf58",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s05-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s05-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s05-f0-candidate.png"
+            },
+            "source_sha256": "26104fbb0309f7fa32a9dd1cc086082395d6503733c7e0dfaf5b366a57758dc3",
+            "candidate_sha256": "c883d23a31ca4a0b689bc8948c0a81323f38bd0c695bdc6d8927ec9e7bc93ede",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.1538964215723979,
+              "self_similarity_control": 0.9999999728067421,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.34586176598377033,
+                "ear_263_side": 0.28100808547516176,
+                "mouth_aperture_ratio": 0.0024733556372147653,
+                "brow_33_side_ratio": 0.7080423169821692,
+                "brow_263_side_ratio": 0.4954249997361123,
+                "pose_reprojection_rmse_px": 13.935134014940633,
+                "pose_reprojection_normalized": 0.05952595098136019,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9284108326692891,
+                    -0.03656519378624269,
+                    -0.3697516901728656
+                  ],
+                  [
+                    0.0063708421080747,
+                    -0.9934329415613256,
+                    0.11423836042085783
+                  ],
+                  [
+                    -0.37150065700231305,
+                    -0.10841576095838812,
+                    -0.9220809533997887
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -173.29410725677633,
+                  21.808196491710717,
+                  0.3931628354850101
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.3189928718198782,
+                "ear_263_side": 0.2859523023019101,
+                "mouth_aperture_ratio": 0.001856434663572352,
+                "brow_33_side_ratio": 0.6947011842043288,
+                "brow_263_side_ratio": 0.515853821489536,
+                "pose_reprojection_rmse_px": 12.24997163568744,
+                "pose_reprojection_normalized": 0.05221977423741099,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9537228068801566,
+                    -0.028004056211581644,
+                    -0.2993803274638029
+                  ],
+                  [
+                    -0.0006306118090442514,
+                    -0.9958377235786375,
+                    0.09114181601473224
+                  ],
+                  [
+                    -0.3006865643246827,
+                    -0.08673523582383104,
+                    -0.9497708086171119
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.78209202015282,
+                  17.49884442537828,
+                  -0.037884582027224147
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.026868894163892154,
+                "ear_263_side": 0.004944216826748338,
+                "mouth_aperture_ratio": 0.0006169209736424134,
+                "brow_33_side_ratio": 0.013341132777840436,
+                "brow_263_side_ratio": 0.020428821753423643
+              },
+              "head_pose_difference_degrees": 4.531857545095586,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9183371067047119
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.8330108645055289
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s06",
+      "input_path": "data/originals/s06.jpg",
+      "input_sha256": "a8da439149b8235302aeb855f3853083937b00a8e96d78a5da83bcea3447bcff",
+      "source_group": "s06",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              459.67559814453125,
+              404.5015869140625,
+              522.0307540893555,
+              481.30960845947266
+            ],
+            "confidence": 0.8862303495407104,
+            "crop_xyxy": [
+              447,
+              389,
+              535,
+              497
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s06-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s06-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s06-f0-candidate.png"
+            },
+            "source_sha256": "d943b35c12c29b18d01fdb111b4f40b4ab0784017306d05f39e653f074a29f83",
+            "candidate_sha256": "3a07f7ab485368b2bde7c543f08b457ba2f3a5d5f11d2969cd6a7edabc371bcc",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.12115129506946687,
+              "self_similarity_control": 0.9999999366476438,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.16527953094407247,
+                "ear_263_side": 0.26335813174162914,
+                "mouth_aperture_ratio": 0.0428108115754981,
+                "brow_33_side_ratio": 0.7436197315916265,
+                "brow_263_side_ratio": 0.9279221997143169,
+                "pose_reprojection_rmse_px": 16.157765092138085,
+                "pose_reprojection_normalized": 0.08861096971701334,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9152223230466381,
+                    -0.02614648657848302,
+                    0.40210006296532236
+                  ],
+                  [
+                    -0.0863079688312727,
+                    -0.987453435285998,
+                    0.1322370888143771
+                  ],
+                  [
+                    0.39359755323596085,
+                    -0.15573077531908266,
+                    -0.9059960770914973
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -170.2467949756809,
+                  -23.178535715509568,
+                  -5.387216930168626
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.2536415265693461,
+                "ear_263_side": 0.2012211182398109,
+                "mouth_aperture_ratio": 0.15947289138396992,
+                "brow_33_side_ratio": 0.7083510578581599,
+                "brow_263_side_ratio": 0.7633513646517123,
+                "pose_reprojection_rmse_px": 14.16385383737464,
+                "pose_reprojection_normalized": 0.074930128679241,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9429827226183248,
+                    -0.01463861742249858,
+                    0.3325196170503156
+                  ],
+                  [
+                    -0.06983112281525408,
+                    -0.9854987982419922,
+                    0.15464712396274993
+                  ],
+                  [
+                    0.32543386291179305,
+                    -0.16904978421620942,
+                    -0.9303305709943973
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -169.70118846679952,
+                  -18.991862507133508,
+                  -4.235219507722743
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.08836199562527361,
+                "ear_263_side": 0.062137013501818245,
+                "mouth_aperture_ratio": 0.11666207980847182,
+                "brow_33_side_ratio": 0.03526867373346665,
+                "brow_263_side_ratio": 0.16457083506260461
+              },
+              "head_pose_difference_degrees": 4.427711126498774,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9060049057006836,
+            "initial_baseline_candidate_sha256": "3a07f7ab485368b2bde7c543f08b457ba2f3a5d5f11d2969cd6a7edabc371bcc",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              459,
+              402,
+              523,
+              471
+            ],
+            "confidence": 0.9862313866615295,
+            "prepared_crop_sha256": "cac966b1c952993e4b94df94345506a3a83e7e46909e71b837026ef3935b511e",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.025245189666748047
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              459,
+              402,
+              523,
+              471
+            ],
+            "confidence": 0.9862313866615295,
+            "prepared_crop_sha256": "114b3292e48f65edd399904b25ff2c435ca6f4e502d62adeebe8ec056c94961f",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.028685808181762695
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.8196552538844277
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s07",
+      "input_path": "data/originals/s07.jpg",
+      "input_sha256": "4dcb2c0abd84dc82eb53d15b28c9b4b45098dcb2de8c70b1e57d49668beac416",
+      "source_group": "s07",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              610.8622436523438,
+              674.3834228515625,
+              651.9034996032715,
+              726.1070671081543
+            ],
+            "confidence": 0.6451898813247681,
+            "crop_xyxy": [
+              602,
+              664,
+              661,
+              737
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.030157089233398438
+          }
+        ],
+        "retina_unaligned": [],
+        "retina_aligned": []
+      },
+      "retina_preparation_status": "zero_detections_no_release",
+      "spatial_pairs_yunet_to_retina": [],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "zero_detections_known_face_no_release",
+        "retina_aligned": "zero_detections_known_face_no_release"
+      }
+    },
+    {
+      "id": "s08",
+      "input_path": "data/originals/s08.jpg",
+      "input_sha256": "32c4622bc5af86f1bf88a6ad5b90e3e2428d9d4d940579bd5a9754e0d35f964e",
+      "source_group": "s08",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              135.79254150390625,
+              128.5325469970703,
+              265.12648010253906,
+              296.8061981201172
+            ],
+            "confidence": 0.9181467890739441,
+            "crop_xyxy": [
+              109,
+              94,
+              291,
+              331
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s08-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s08-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s08-f0-candidate.png"
+            },
+            "source_sha256": "0bab91eca6f70c45454811210e09c9133fcde3db5c1810d30f8ccbf7743439bd",
+            "candidate_sha256": "b8cc2438d602486c30175925146c676d70354968739841c7a3374f770297646b",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.0373551864795445,
+              "self_similarity_control": 1.0000000297757197,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.2531064490298036,
+                "ear_263_side": 0.40718888738802395,
+                "mouth_aperture_ratio": 0.3612998055649988,
+                "brow_33_side_ratio": 1.0244617558393014,
+                "brow_263_side_ratio": 1.5216586160067518,
+                "pose_reprojection_rmse_px": 9.307372226924109,
+                "pose_reprojection_normalized": 0.060075965221185,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7947266473892064,
+                    -0.08352453031865507,
+                    0.6011931542895022
+                  ],
+                  [
+                    -0.11285219445885115,
+                    -0.9935492682659269,
+                    0.011146018753925638
+                  ],
+                  [
+                    0.5963840525494748,
+                    -0.07670400487125353,
+                    -0.7990260055225837
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.51658659346054,
+                  -36.611361082273966,
+                  -8.082039548656727
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.1834192063728563,
+                "ear_263_side": 0.4652181266496918,
+                "mouth_aperture_ratio": 0.25588196895985627,
+                "brow_33_side_ratio": 1.0370287540414285,
+                "brow_263_side_ratio": 1.2926651942124041,
+                "pose_reprojection_rmse_px": 12.663243489417663,
+                "pose_reprojection_normalized": 0.0697573155565977,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8622458604627903,
+                    -0.0768721601210562,
+                    0.5006223597814082
+                  ],
+                  [
+                    -0.07400869970468822,
+                    -0.9969286306422355,
+                    -0.02561284392289799
+                  ],
+                  [
+                    0.5010536782449605,
+                    -0.014965841243316305,
+                    -0.8652867935621551
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -179.00912153267257,
+                  -30.06973531023944,
+                  -4.905814971742188
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.06968724265694731,
+                "ear_263_side": 0.058029239261667864,
+                "mouth_aperture_ratio": 0.10541783660514253,
+                "brow_33_side_ratio": 0.012566998202127033,
+                "brow_263_side_ratio": 0.22899342179434767
+              },
+              "head_pose_difference_degrees": 7.571915797270557,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.066863775253296,
+            "initial_baseline_candidate_sha256": "b8cc2438d602486c30175925146c676d70354968739841c7a3374f770297646b",
+            "initial_baseline_pixel_artifact_identical": true
+          },
+          {
+            "index": 1,
+            "bbox_xyxy": [
+              578.8237915039062,
+              97.42031860351562,
+              696.9660568237305,
+              304.3084716796875
+            ],
+            "confidence": 0.8687252402305603,
+            "crop_xyxy": [
+              555,
+              56,
+              721,
+              346
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.03004598617553711
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              578,
+              109,
+              694,
+              300
+            ],
+            "confidence": 0.9998502731323242,
+            "prepared_crop_sha256": "d9cf91cf88e38714071706e04b086df9f1edc289262dc73d61847d0547804f2c",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.027892112731933594
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              140,
+              123,
+              267,
+              304
+            ],
+            "confidence": 0.9994076490402222,
+            "prepared_crop_sha256": "e364049400db0b638a42a8385d4a9c129d4470437c4c358ad0862a52ec621e85",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s08-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s08-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s08-f1-candidate.png"
+            },
+            "source_sha256": "46ab5f5c2b3c07c616945aec62b127c248e50f2ca876aa4e52e320f2df892ab1",
+            "candidate_sha256": "df5a3e6c65dea5b94bfc7aad36858195618c0e070848f8c5dacedea22977b375",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.030252198608195613,
+              "self_similarity_control": 0.9999999634147656,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.22523894741471437,
+                "ear_263_side": 0.4606584756532662,
+                "mouth_aperture_ratio": 0.30164764653173287,
+                "brow_33_side_ratio": 0.8678505062317045,
+                "brow_263_side_ratio": 1.2571784114984799,
+                "pose_reprojection_rmse_px": 9.887180964599873,
+                "pose_reprojection_normalized": 0.049803131751408436,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8401993562070352,
+                    -0.09833809733179012,
+                    0.5332866587891042
+                  ],
+                  [
+                    -0.12645825248115897,
+                    -0.9918373168386297,
+                    0.01634158210697738
+                  ],
+                  [
+                    0.5273266086674316,
+                    -0.08116868570767302,
+                    -0.8457767390108304
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.51814683252877,
+                  -31.825001867940795,
+                  -8.55933113846931
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.23486724983383425,
+                "ear_263_side": 0.4610310931709617,
+                "mouth_aperture_ratio": 0.26574440366256113,
+                "brow_33_side_ratio": 0.8537258258713352,
+                "brow_263_side_ratio": 1.1294881257421274,
+                "pose_reprojection_rmse_px": 12.329282759843013,
+                "pose_reprojection_normalized": 0.060469589300489464,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8484597378599487,
+                    -0.07913100851676536,
+                    0.5233109560497906
+                  ],
+                  [
+                    -0.10058043377606246,
+                    -0.9948486248204667,
+                    0.012640808290831754
+                  ],
+                  [
+                    0.5196149050710972,
+                    -0.06336005984803089,
+                    -0.8520480345872576
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -175.7471943599454,
+                  -31.30642363619507,
+                  -6.760562342034441
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.009628302419119883,
+                "ear_263_side": 0.0003726175176955171,
+                "mouth_aperture_ratio": 0.035903242869171736,
+                "brow_33_side_ratio": 0.01412468036036929,
+                "brow_263_side_ratio": 0.12769028575635244
+              },
+              "head_pose_difference_degrees": 1.6432732511704204,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9719469547271729
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              578,
+              109,
+              694,
+              300
+            ],
+            "confidence": 0.9998502731323242,
+            "prepared_crop_sha256": "fee10410b7156ee48b0959d86e4c618304039a7cff0c5e4023df332642943d42",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.02767801284790039
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              140,
+              123,
+              267,
+              304
+            ],
+            "confidence": 0.9994076490402222,
+            "prepared_crop_sha256": "b6cfeffa0a1a5db6005ef53da0dcf3a907e4f9facd1aaea3c66449e3273a7d59",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s08-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s08-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s08-f1-candidate.png"
+            },
+            "source_sha256": "2d7bf1db0935d8d2e882ccf317d9c0dc3cc5fb9a075604ffe0f534b1fc2efb45",
+            "candidate_sha256": "e2ba429b4fa48870ea67cc71cbe9e79c2fc7fc678c48b54508f1fb704d36f4be",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.02287951287416945,
+              "self_similarity_control": 0.999999972646421,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.22019739953736514,
+                "ear_263_side": 0.40339257461294825,
+                "mouth_aperture_ratio": 0.32168920835570936,
+                "brow_33_side_ratio": 0.9206768428080869,
+                "brow_263_side_ratio": 1.2698349304525154,
+                "pose_reprojection_rmse_px": 10.250201708028035,
+                "pose_reprojection_normalized": 0.05021965646151416,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8564388609927095,
+                    0.0035793979905374626,
+                    0.5162360557841101
+                  ],
+                  [
+                    -0.04913797787518502,
+                    -0.9948706771372127,
+                    0.08841829506884855
+                  ],
+                  [
+                    0.5139045986482778,
+                    -0.10109165980717438,
+                    -0.851870025183175
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -173.2323438227261,
+                  -30.924264907276957,
+                  -3.2837318093535313
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.18994153513806655,
+                "ear_263_side": 0.3264913005624504,
+                "mouth_aperture_ratio": 0.2648194771245283,
+                "brow_33_side_ratio": 0.9579463990445652,
+                "brow_263_side_ratio": 1.2963901491201288,
+                "pose_reprojection_rmse_px": 10.394811603080726,
+                "pose_reprojection_normalized": 0.05103629339296338,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8638736573420782,
+                    0.012663043168894812,
+                    0.5035493535773077
+                  ],
+                  [
+                    -0.025146082623500654,
+                    -0.9973532923781254,
+                    0.06822085246613104
+                  ],
+                  [
+                    0.503080489265002,
+                    -0.07159649097697628,
+                    -0.8612688104190642
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -175.24798017884834,
+                  -30.204013663435777,
+                  -1.6673244720540834
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.030255864399298588,
+                "ear_263_side": 0.07690127405049785,
+                "mouth_aperture_ratio": 0.05686973123118105,
+                "brow_33_side_ratio": 0.03726955623647832,
+                "brow_263_side_ratio": 0.026555218667613456
+              },
+              "head_pose_difference_degrees": 1.9699038466923298,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9565420150756836
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 1,
+          "iou": 0.8886045894250585
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "iou": 0.8942695970379818
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s09",
+      "input_path": "data/originals/s09.jpg",
+      "input_sha256": "762c5752cd2a8c373a8909d7edc764edceffb3713de9cc8c45d4ee0385098d3c",
+      "source_group": "s09",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              415.344970703125,
+              159.77752685546875,
+              552.4863586425781,
+              351.0770568847656
+            ],
+            "confidence": 0.9350094199180603,
+            "crop_xyxy": [
+              387,
+              121,
+              580,
+              390
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s09-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s09-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s09-f0-candidate.png"
+            },
+            "source_sha256": "107ea96dfc28976420a5330642f6416ee9f1a5e5c66b82c50fb989e54226c3b0",
+            "candidate_sha256": "238318a678d58c39a0a867c754363bdc0eb139caf10a6d4cb648513185f306c5",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.011812275181000587,
+              "self_similarity_control": 1.0000000012360175,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.08693936616835637,
+                "ear_263_side": 0.07378357291306535,
+                "mouth_aperture_ratio": 0.2613231719645494,
+                "brow_33_side_ratio": 0.826158352718137,
+                "brow_263_side_ratio": 1.1306116731494635,
+                "pose_reprojection_rmse_px": 10.208732752718214,
+                "pose_reprojection_normalized": 0.05906671982388275,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9416331090224493,
+                    0.12443989685393655,
+                    0.31279673921525747
+                  ],
+                  [
+                    0.006934062569042061,
+                    -0.9361428475366032,
+                    0.35155154356416735
+                  ],
+                  [
+                    0.33656946796910253,
+                    -0.328863620786857,
+                    -0.8823659740458907
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -159.55924350603922,
+                  -19.668004772704514,
+                  0.42191097067859396
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.0867870591131797,
+                "ear_263_side": 0.16762468576038653,
+                "mouth_aperture_ratio": 0.27740771158149785,
+                "brow_33_side_ratio": 0.9258989673424686,
+                "brow_263_side_ratio": 1.2376979907817605,
+                "pose_reprojection_rmse_px": 8.446874630466704,
+                "pose_reprojection_normalized": 0.05075772038265212,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9356452042159533,
+                    0.1706407713723727,
+                    0.3089494764085689
+                  ],
+                  [
+                    0.08057629815340533,
+                    -0.9555125030786783,
+                    0.2837310639253525
+                  ],
+                  [
+                    0.3436211751385248,
+                    -0.2405776041234108,
+                    -0.907770292745174
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -165.15668328418857,
+                  -20.097649878934376,
+                  4.922078670228885
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.0001523070551766731,
+                "ear_263_side": 0.09384111284732118,
+                "mouth_aperture_ratio": 0.016084539616948446,
+                "brow_33_side_ratio": 0.09974061462433159,
+                "brow_263_side_ratio": 0.10708631763229692
+              },
+              "head_pose_difference_degrees": 5.8838068307287426,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9508769512176514,
+            "initial_baseline_candidate_sha256": "238318a678d58c39a0a867c754363bdc0eb139caf10a6d4cb648513185f306c5",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              412,
+              155,
+              552,
+              350
+            ],
+            "confidence": 0.9991149306297302,
+            "prepared_crop_sha256": "9abbff06bbce0648ecc7945d4f1d9b922d87697cd88864759f2ec09d87108ec0",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s09-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s09-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s09-f0-candidate.png"
+            },
+            "source_sha256": "f6c263ad8d519a1a6ec16ea4d50908c5e1b4ba906365cc7e32983aff4655894a",
+            "candidate_sha256": "0537ee425557b190c9aebb9fe68c21464d6e66e8cbc722260976e614f9dc3299",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.17513513350297671,
+              "self_similarity_control": 0.99999990851353,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.08537149849949853,
+                "ear_263_side": 0.08569784862710347,
+                "mouth_aperture_ratio": 0.28158870483256987,
+                "brow_33_side_ratio": 0.8466036270045023,
+                "brow_263_side_ratio": 1.0848905207613706,
+                "pose_reprojection_rmse_px": 13.870966969934027,
+                "pose_reprojection_normalized": 0.057355735992626194,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9664729892893912,
+                    0.10534660751146753,
+                    0.234162450576207
+                  ],
+                  [
+                    0.039776775247344395,
+                    -0.9623777019641995,
+                    0.26878795901793795
+                  ],
+                  [
+                    0.2536686206943066,
+                    -0.25046207506912355,
+                    -0.9343024027728478
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -164.99333442007764,
+                  -14.694708993518388,
+                  2.3567713500204523
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.08853114843192474,
+                "ear_263_side": 0.08740448986239913,
+                "mouth_aperture_ratio": 0.2647328043008203,
+                "brow_33_side_ratio": 0.9592614960870716,
+                "brow_263_side_ratio": 1.0138823508644224,
+                "pose_reprojection_rmse_px": 13.57731279387819,
+                "pose_reprojection_normalized": 0.05582562997782536,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.982079791342564,
+                    0.08864339670924301,
+                    0.1663178633111694
+                  ],
+                  [
+                    0.04656167144892276,
+                    -0.9692467297778803,
+                    0.2416459963805882
+                  ],
+                  [
+                    0.1826233670383602,
+                    -0.22957161199663262,
+                    -0.9560050108534159
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -166.49687685521707,
+                  -10.52260095165124,
+                  2.7144342699479704
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.003159649932426206,
+                "ear_263_side": 0.0017066412352956528,
+                "mouth_aperture_ratio": 0.016855900531749568,
+                "brow_33_side_ratio": 0.11265786908256925,
+                "brow_263_side_ratio": 0.07100816989694825
+              },
+              "head_pose_difference_degrees": 4.422573592638965,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.1029939651489258
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              412,
+              155,
+              552,
+              350
+            ],
+            "confidence": 0.9991149306297302,
+            "prepared_crop_sha256": "60104043109ca048a702ea1919cf18987727c71f99c03ffa276a67aa40664ca4",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s09-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s09-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s09-f0-candidate.png"
+            },
+            "source_sha256": "aef4d485f21b62d191145416afbd834546efb343aa1320d4187bc206dd1502fa",
+            "candidate_sha256": "849e02af162153443ef9e896cfbbe0cb58bf050768f893bc461469077a936d7a",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.1856705542772943,
+              "self_similarity_control": 0.999999996496058,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.07176234169892827,
+                "ear_263_side": 0.06961893257674999,
+                "mouth_aperture_ratio": 0.28827200999640346,
+                "brow_33_side_ratio": 0.8317439913851854,
+                "brow_263_side_ratio": 1.0921977612198943,
+                "pose_reprojection_rmse_px": 12.458879668194779,
+                "pose_reprojection_normalized": 0.05225924055317249,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9579415593823863,
+                    0.1316766019923503,
+                    0.2549690987076486
+                  ],
+                  [
+                    0.06170404729362341,
+                    -0.9622408602568617,
+                    0.2651134425104108
+                  ],
+                  [
+                    0.2802509221316297,
+                    -0.2382305592065862,
+                    -0.9298954894527064
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -165.63041063741937,
+                  -16.27518109095919,
+                  3.685510970921095
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.10672146147487914,
+                "ear_263_side": 0.09080463500227336,
+                "mouth_aperture_ratio": 0.26907303470402255,
+                "brow_33_side_ratio": 0.8903094696770215,
+                "brow_263_side_ratio": 1.0819106037985002,
+                "pose_reprojection_rmse_px": 14.274451517125646,
+                "pose_reprojection_normalized": 0.05969375220377161,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9678230794543466,
+                    0.12672483459007117,
+                    0.21739204947197227
+                  ],
+                  [
+                    0.06409761074544391,
+                    -0.9595873959213151,
+                    0.2740137330238667
+                  ],
+                  [
+                    0.24333101563966503,
+                    -0.25126250394173116,
+                    -0.9368335876454797
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -164.98638010565895,
+                  -14.083223371534837,
+                  3.7890883404197733
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.03495911977595087,
+                "ear_263_side": 0.021185702425523367,
+                "mouth_aperture_ratio": 0.019198975292380904,
+                "brow_33_side_ratio": 0.058565478291836115,
+                "brow_263_side_ratio": 0.010287157421394078
+              },
+              "head_pose_difference_degrees": 2.2945730175728474,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.0416488647460938
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.9438868870591474
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s10",
+      "input_path": "data/originals/s10.jpg",
+      "input_sha256": "1eb22ae71d69ec55de95cbec372fc8f97cfc7e40bd94be8fbe5faf0279c11d9e",
+      "source_group": "s10",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              94.62193298339844,
+              235.38876342773438,
+              103.39896392822266,
+              246.35327243804932
+            ],
+            "confidence": 0.7155713438987732,
+            "status": "failed",
+            "failure": "source_face_too_small",
+            "release_allowed": false
+          },
+          {
+            "index": 1,
+            "bbox_xyxy": [
+              154.07803344726562,
+              226.5327606201172,
+              162.7726764678955,
+              237.1142930984497
+            ],
+            "confidence": 0.619049608707428,
+            "status": "failed",
+            "failure": "source_face_too_small",
+            "release_allowed": false
+          },
+          {
+            "index": 2,
+            "bbox_xyxy": [
+              304.3190612792969,
+              351.4789123535156,
+              398.24312591552734,
+              460.36319732666016
+            ],
+            "confidence": 0.8184267282485962,
+            "crop_xyxy": [
+              285,
+              329,
+              418,
+              483
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s10-f2-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s10-f2-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s10-f2-candidate.png"
+            },
+            "source_sha256": "ad5780c55f1c1b25fa458cfb9e3a1189fb7287ebda6a474cac3d3c0ccd9627a3",
+            "candidate_sha256": "461a958e69b88c039ef0020a05d221b1ce3c38a7ef7777435184893ce6d8896c",
+            "identity": {
+              "status": "indeterminate",
+              "reason": "identity_face_count",
+              "identity_similarity": null,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.152910804271339,
+                "ear_263_side": 0.3360275055566356,
+                "mouth_aperture_ratio": 0.007173097614322192,
+                "brow_33_side_ratio": 0.8585569844133736,
+                "brow_263_side_ratio": 1.3335990976985244,
+                "pose_reprojection_rmse_px": 14.831531676116121,
+                "pose_reprojection_normalized": 0.11349455563531168,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.897776477204819,
+                    0.13447352914628471,
+                    0.419421347735959
+                  ],
+                  [
+                    -0.008542089651027207,
+                    -0.9467585489603446,
+                    0.3218311400018596
+                  ],
+                  [
+                    0.44036851577071073,
+                    -0.29251516187959564,
+                    -0.8488288699075068
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -160.98552185469958,
+                  -26.127396253740198,
+                  -0.5451367119135287
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.2035214008106914,
+                "ear_263_side": 0.21806508997614713,
+                "mouth_aperture_ratio": 0.008293511555512124,
+                "brow_33_side_ratio": 0.5834564080091518,
+                "brow_263_side_ratio": 1.0723465116699682,
+                "pose_reprojection_rmse_px": 12.265947075507087,
+                "pose_reprojection_normalized": 0.07573434686340923,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8952390904530726,
+                    -0.02693872932776814,
+                    0.44477103748666175
+                  ],
+                  [
+                    -0.011881116418961097,
+                    -0.999259059751437,
+                    -0.03660834026985077
+                  ],
+                  [
+                    0.44542767089326113,
+                    0.027488840770016638,
+                    -0.8948958339581906
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  178.24057793664687,
+                  -26.450704270903543,
+                  -0.7603531523473326
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.050610596539352404,
+                "ear_263_side": 0.11796241558048845,
+                "mouth_aperture_ratio": 0.0011204139411899322,
+                "brow_33_side_ratio": 0.2751005764042218,
+                "brow_263_side_ratio": 0.26125258602855617
+              },
+              "head_pose_difference_degrees": 20.87257850073764,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "validation_indeterminate",
+            "elapsed_seconds": 0.894294023513794,
+            "initial_baseline_candidate_sha256": "461a958e69b88c039ef0020a05d221b1ce3c38a7ef7777435184893ce6d8896c",
+            "initial_baseline_pixel_artifact_identical": true
+          },
+          {
+            "index": 3,
+            "bbox_xyxy": [
+              681.7975463867188,
+              317.5316162109375,
+              760.7129364013672,
+              405.74605560302734
+            ],
+            "confidence": 0.911589503288269,
+            "crop_xyxy": [
+              666,
+              299,
+              777,
+              424
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s10-f3-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s10-f3-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s10-f3-candidate.png"
+            },
+            "source_sha256": "fc3462349a25234c4d22cc30d0f8fda89d0ec69ffddd58ecd2a36f92e20d68b1",
+            "candidate_sha256": "00f764a3d83d89232de3254f760aa315afc279aa6cb4f9536e8659210675f665",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": -0.04470606484983364,
+              "self_similarity_control": 0.9999999017907726,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.21023104283675667,
+                "ear_263_side": 0.18506130111760558,
+                "mouth_aperture_ratio": 0.01844506479036541,
+                "brow_33_side_ratio": 0.685439084240638,
+                "brow_263_side_ratio": 0.6790154672801039,
+                "pose_reprojection_rmse_px": 9.130612990520659,
+                "pose_reprojection_normalized": 0.03796689448753987,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9970987202284202,
+                    -0.07475175020191373,
+                    -0.014363772505748395
+                  ],
+                  [
+                    -0.06127341297128251,
+                    -0.900171135992315,
+                    0.4312047017243153
+                  ],
+                  [
+                    -0.04516315956282145,
+                    -0.4290735388812223,
+                    -0.9021397825449488
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -154.56341810820933,
+                  2.58853892005869,
+                  -3.516501123416238
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.3280998478192225,
+                "ear_263_side": 0.3208216671432933,
+                "mouth_aperture_ratio": 0.059497481092347516,
+                "brow_33_side_ratio": 0.5727333067214344,
+                "brow_263_side_ratio": 0.6051083607626202,
+                "pose_reprojection_rmse_px": 10.525885026771439,
+                "pose_reprojection_normalized": 0.0448855999879593,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9961208564716657,
+                    -0.08192992907135463,
+                    -0.03210492212289102
+                  ],
+                  [
+                    -0.06400499280018124,
+                    -0.9249753248906022,
+                    0.37459846401203195
+                  ],
+                  [
+                    -0.06038708635795278,
+                    -0.3710904674953099,
+                    -0.9266311373655158
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -158.17524660905727,
+                  3.4620314708996456,
+                  -3.6764430382623625
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.11786880498246585,
+                "ear_263_side": 0.13576036602568772,
+                "mouth_aperture_ratio": 0.04105241630198211,
+                "brow_33_side_ratio": 0.11270577751920363,
+                "brow_263_side_ratio": 0.07390710651748367
+              },
+              "head_pose_difference_degrees": 3.711150391066002,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.003267765045166,
+            "initial_baseline_candidate_sha256": "00f764a3d83d89232de3254f760aa315afc279aa6cb4f9536e8659210675f665",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              305,
+              363,
+              395,
+              447
+            ],
+            "confidence": 0.9997733235359192,
+            "prepared_crop_sha256": "601aaf5398afeae0a5aa70b4ecfa1d7ac2b067d948c22c61b2225e967d496764",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.026930809020996094
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              679,
+              299,
+              763,
+              413
+            ],
+            "confidence": 0.9994256496429443,
+            "prepared_crop_sha256": "24ffe01a54f2f45969778b1c0c1d17a01082b58223943532298234aa2b1af4dc",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s10-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s10-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s10-f1-candidate.png"
+            },
+            "source_sha256": "6530ddab89f630759c339efd8030b19a354a1b3ffcdb804438a59d8103e48b79",
+            "candidate_sha256": "1e36ff185f18c90931a65f5643709e7480e84914b64e3d94a6dd5b2e502453c2",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.09670365704369033,
+              "self_similarity_control": 0.9999999598924205,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.19361216189345054,
+                "ear_263_side": 0.2047921947642164,
+                "mouth_aperture_ratio": 0.0020942488060722497,
+                "brow_33_side_ratio": 0.6708952039920157,
+                "brow_263_side_ratio": 0.6376134565197489,
+                "pose_reprojection_rmse_px": 10.30120326364341,
+                "pose_reprojection_normalized": 0.03960952934668832,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9946552524225517,
+                    -0.10056514805495913,
+                    -0.023400423605425966
+                  ],
+                  [
+                    -0.08288836403738976,
+                    -0.9128485418621295,
+                    0.39979627152762337
+                  ],
+                  [
+                    -0.06156661380516534,
+                    -0.39571983854346776,
+                    -0.9163052774308884
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -156.64219220132637,
+                  3.5297394116739826,
+                  -4.763666079840806
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.3888461596148252,
+                "ear_263_side": 0.2930778490186276,
+                "mouth_aperture_ratio": 0.003899253704340736,
+                "brow_33_side_ratio": 0.6036387420958157,
+                "brow_263_side_ratio": 0.6469742369822424,
+                "pose_reprojection_rmse_px": 9.8869919148813,
+                "pose_reprojection_normalized": 0.0379474065971881,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9928828603106972,
+                    -0.1162971884557624,
+                    -0.02566300174440381
+                  ],
+                  [
+                    -0.09930040925993427,
+                    -0.9273727462035889,
+                    0.3607204157233459
+                  ],
+                  [
+                    -0.06574993857075417,
+                    -0.35560477155980175,
+                    -0.9323208632342426
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -159.12220494546807,
+                  3.7699135747360066,
+                  -5.711285798959346
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.19523399772137467,
+                "ear_263_side": 0.0882856542544112,
+                "mouth_aperture_ratio": 0.0018050048982684863,
+                "brow_33_side_ratio": 0.06725646189620005,
+                "brow_263_side_ratio": 0.009360780462493556
+              },
+              "head_pose_difference_degrees": 2.608978988894713,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.018388032913208
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              305,
+              363,
+              395,
+              447
+            ],
+            "confidence": 0.9997733235359192,
+            "prepared_crop_sha256": "855a4637ef4938592c0043d19c204ff0adcae83bd8e693872ac79a37f730b9d0",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.025871753692626953
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              679,
+              299,
+              763,
+              413
+            ],
+            "confidence": 0.9994256496429443,
+            "prepared_crop_sha256": "1ae6d1dbc98b24d202af2a6b794b964adea9bb0841de0b80f92f1f17c8a113d0",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s10-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s10-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s10-f1-candidate.png"
+            },
+            "source_sha256": "00d25a94506b7192c8936888c9fdb5a7237629354da6409e72fac6ef96504c0c",
+            "candidate_sha256": "8f09df83d4bfe0207ae22783e327362ab3d75bd51e3f5549908b77fcc75594a4",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.1058319832077359,
+              "self_similarity_control": 0.9999998930314735,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.1982395278119675,
+                "ear_263_side": 0.1800505764350755,
+                "mouth_aperture_ratio": 0.008211713784322899,
+                "brow_33_side_ratio": 0.6466318142353896,
+                "brow_263_side_ratio": 0.6552918879739003,
+                "pose_reprojection_rmse_px": 9.739290205976625,
+                "pose_reprojection_normalized": 0.037086525447768054,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9966045615455572,
+                    -0.0476454313275816,
+                    -0.06715102962871028
+                  ],
+                  [
+                    -0.016761182992007174,
+                    -0.9158859321701491,
+                    0.40108854633051466
+                  ],
+                  [
+                    -0.08061272015814669,
+                    -0.3986011441609591,
+                    -0.9135746916493903
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -156.42790858951236,
+                  4.623785768088454,
+                  -0.963526107973863
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.3643036993808655,
+                "ear_263_side": 0.23419720837131902,
+                "mouth_aperture_ratio": 0.0018331221400560975,
+                "brow_33_side_ratio": 0.54530200620623,
+                "brow_263_side_ratio": 0.702412406454409,
+                "pose_reprojection_rmse_px": 9.261071354436636,
+                "pose_reprojection_normalized": 0.03505604467643588,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.992938136549323,
+                    -0.06999641243135596,
+                    -0.0957828754668469
+                  ],
+                  [
+                    -0.03295543138583203,
+                    -0.9383549172227195,
+                    0.34409880683623
+                  ],
+                  [
+                    -0.11396401418049341,
+                    -0.3385122620684263,
+                    -0.9340351448961572
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -160.0785116866153,
+                  6.5438745908126155,
+                  -1.900938429125677
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.166064171568898,
+                "ear_263_side": 0.05414663193624353,
+                "mouth_aperture_ratio": 0.006378591644266802,
+                "brow_33_side_ratio": 0.10132980802915958,
+                "brow_263_side_ratio": 0.0471205184805088
+              },
+              "head_pose_difference_degrees": 4.1502737549206365,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.0037219524383545
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 2,
+          "b": 0,
+          "iou": 0.7392302209367976
+        },
+        {
+          "a": 3,
+          "b": 1,
+          "iou": 0.7269712708385899
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s11",
+      "input_path": "data/originals/s11.jpg",
+      "input_sha256": "f2e808f9c15510680455463e37d7680386ff92e81d0aa98f6d5a7e197f9afb5d",
+      "source_group": "s11",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              120.3837890625,
+              93.27894592285156,
+              207.28823852539062,
+              204.77875518798828
+            ],
+            "confidence": 0.8289887309074402,
+            "crop_xyxy": [
+              103,
+              70,
+              225,
+              228
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s11-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s11-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s11-f0-candidate.png"
+            },
+            "source_sha256": "f80ea335678541de89c98824d53234a5080a970413245abcdc45604a00129c8f",
+            "candidate_sha256": "11045514ac1de15dc5435b624aa73d2ece26fb7362e4f52139de431ab67130ef",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.08661074709016248,
+              "self_similarity_control": 0.9999999921550398,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.28373121327373957,
+                "ear_263_side": 0.48055377424983586,
+                "mouth_aperture_ratio": 0.017793839925783313,
+                "brow_33_side_ratio": 0.6243860143141791,
+                "brow_263_side_ratio": 1.6441942619614134,
+                "pose_reprojection_rmse_px": 8.563686572844865,
+                "pose_reprojection_normalized": 0.061544984609426596,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.726554944501705,
+                    0.04498897152729144,
+                    0.6856339439241909
+                  ],
+                  [
+                    -0.12445700955640407,
+                    -0.9727317785996242,
+                    0.1957123901920588
+                  ],
+                  [
+                    0.6757428248915419,
+                    -0.2275277551054554,
+                    -0.7011438905561902
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -162.02126804833097,
+                  -42.51186141888675,
+                  -9.720280187415202
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.262818971194258,
+                "ear_263_side": 0.3587785128093961,
+                "mouth_aperture_ratio": 0.004916416719271643,
+                "brow_33_side_ratio": 0.5310762867804104,
+                "brow_263_side_ratio": 1.1793521801114037,
+                "pose_reprojection_rmse_px": 9.664049279547477,
+                "pose_reprojection_normalized": 0.05798890451603989,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.7932955141422495,
+                    0.046601029596185714,
+                    0.6070507155768445
+                  ],
+                  [
+                    -0.11311511614492882,
+                    -0.9684261385633121,
+                    0.22216161830269426
+                  ],
+                  [
+                    0.5982367405478393,
+                    -0.244906427412447,
+                    -0.7629768306251304
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -162.20399172426906,
+                  -36.74371759317009,
+                  -8.115038672905953
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.020912242079481558,
+                "ear_263_side": 0.12177526144043976,
+                "mouth_aperture_ratio": 0.012877423206511671,
+                "brow_33_side_ratio": 0.09330972753376865,
+                "brow_263_side_ratio": 0.46484208185000964
+              },
+              "head_pose_difference_degrees": 5.958620239338919,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9374549388885498,
+            "initial_baseline_candidate_sha256": "11045514ac1de15dc5435b624aa73d2ece26fb7362e4f52139de431ab67130ef",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              116,
+              74,
+              208,
+              206
+            ],
+            "confidence": 0.9998086094856262,
+            "prepared_crop_sha256": "667f7a15df57748b1be9d9caae72b9f60a72b7edf74807d6ae3276e9022f9b13",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.025203227996826172
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              116,
+              74,
+              208,
+              206
+            ],
+            "confidence": 0.9998086094856262,
+            "prepared_crop_sha256": "ac5d83a140db507a7d3582508cd5d64889666aa0c4376c192a45cedd985e3a2a",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.025390148162841797
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.7979108645754297
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s12",
+      "input_path": "data/originals/s12.jpg",
+      "input_sha256": "943984ae78099fe52d07e19885d0a98a061296418547f5149d1f454bba0da608",
+      "source_group": "s12",
+      "transformed": false,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              120.28968811035156,
+              105.11164855957031,
+              217.21819305419922,
+              231.59537506103516
+            ],
+            "confidence": 0.8919992446899414,
+            "crop_xyxy": [
+              100,
+              79,
+              237,
+              257
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s12-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s12-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s12-f0-candidate.png"
+            },
+            "source_sha256": "28170d5854c4d690cc252864ffddf030bfb849b9474c58dcaaa34f00983383bd",
+            "candidate_sha256": "52eca7d79487e8248c4f5319c08c7dda4016092bd1ec09104743f0eff2665e9e",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.1362246394455724,
+              "self_similarity_control": 0.9999999994993516,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.2954281963246415,
+                "ear_263_side": 0.29011949727598113,
+                "mouth_aperture_ratio": 0.02388650020798298,
+                "brow_33_side_ratio": 0.46258504716354915,
+                "brow_263_side_ratio": 0.610178522249214,
+                "pose_reprojection_rmse_px": 10.591609784309204,
+                "pose_reprojection_normalized": 0.06183633964892007,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9558030129020497,
+                    -0.17101644665215388,
+                    0.23915261968424018
+                  ],
+                  [
+                    -0.18998600932445625,
+                    -0.9800435772484111,
+                    0.058479936346626446
+                  ],
+                  [
+                    0.2243789579892273,
+                    -0.10133095118772385,
+                    -0.9692193361376257
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.03146458954708,
+                  -12.966361356596538,
+                  -11.242213425590704
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.27137959431187036,
+                "ear_263_side": 0.24750927889373428,
+                "mouth_aperture_ratio": 0.0030809138603966842,
+                "brow_33_side_ratio": 0.5003605829457392,
+                "brow_263_side_ratio": 0.7122928611606114,
+                "pose_reprojection_rmse_px": 8.046187410023544,
+                "pose_reprojection_normalized": 0.04513611436869157,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9737660776828835,
+                    -0.13914099174735575,
+                    0.18005390962057333
+                  ],
+                  [
+                    -0.15859671693047114,
+                    -0.9824141071037145,
+                    0.0985373205566678
+                  ],
+                  [
+                    0.16317692034404657,
+                    -0.12450825908016613,
+                    -0.9787088362162972
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -172.74995568541604,
+                  -9.391344409172524,
+                  -9.250506739654304
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.024048602012771148,
+                "ear_263_side": 0.04261021838224685,
+                "mouth_aperture_ratio": 0.020805586347586294,
+                "brow_33_side_ratio": 0.037775535782190006,
+                "brow_263_side_ratio": 0.10211433891139743
+              },
+              "head_pose_difference_degrees": 4.40201811666564,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9054992198944092,
+            "initial_baseline_candidate_sha256": "52eca7d79487e8248c4f5319c08c7dda4016092bd1ec09104743f0eff2665e9e",
+            "initial_baseline_pixel_artifact_identical": true
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              120,
+              103,
+              214,
+              230
+            ],
+            "confidence": 0.9997082352638245,
+            "prepared_crop_sha256": "211b87ab339218c7bc445e65518c9d85c0031678097be7a77b7cd0cf9a3b0fd2",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s12-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s12-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s12-f0-candidate.png"
+            },
+            "source_sha256": "a2fa3e79332d217a184eccc2ade66ff4776d9d570146506ee1fcb98830cde270",
+            "candidate_sha256": "3f759cebc298fa381440f06c81ff4f70c7fe3c11216a47bcee76e855d1345a15",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.014827237809186045,
+              "self_similarity_control": 0.9999999911431248,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.30243795888738273,
+                "ear_263_side": 0.2938983597513896,
+                "mouth_aperture_ratio": 0.03572711228059729,
+                "brow_33_side_ratio": 0.4865915457526316,
+                "brow_263_side_ratio": 0.6287533811290962,
+                "pose_reprojection_rmse_px": 14.664520783534732,
+                "pose_reprojection_normalized": 0.06297145633897584,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9645085004326789,
+                    -0.17100356017823568,
+                    0.20119924204497608
+                  ],
+                  [
+                    -0.18123657914816357,
+                    -0.9828705328058712,
+                    0.0334487386993043
+                  ],
+                  [
+                    0.1920329528278305,
+                    -0.06872625515966535,
+                    -0.9789790839849198
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -175.9843119177857,
+                  -11.071448831047881,
+                  -10.642105298944925
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.2768371924548737,
+                "ear_263_side": 0.2928816402075705,
+                "mouth_aperture_ratio": 0.00541572381743459,
+                "brow_33_side_ratio": 0.5461219626941758,
+                "brow_263_side_ratio": 0.6044999545683747,
+                "pose_reprojection_rmse_px": 13.560007474045486,
+                "pose_reprojection_normalized": 0.05873058551174048,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.963547523409782,
+                    -0.16077922785770302,
+                    0.21383687712916988
+                  ],
+                  [
+                    -0.17028976690844774,
+                    -0.9850322206117066,
+                    0.026700555107275824
+                  ],
+                  [
+                    0.20634331929369903,
+                    -0.06214148571003876,
+                    -0.9765044138848566
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -176.35879745998798,
+                  -11.908146991672691,
+                  -10.022509551790428
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.025600766432509026,
+                "ear_263_side": 0.0010167195438191001,
+                "mouth_aperture_ratio": 0.030311388463162697,
+                "brow_33_side_ratio": 0.059530416941544206,
+                "brow_263_side_ratio": 0.02425342656072149
+              },
+              "head_pose_difference_degrees": 1.0638388525426692,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9207181930541992
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              120,
+              103,
+              214,
+              230
+            ],
+            "confidence": 0.9997082352638245,
+            "prepared_crop_sha256": "01344bc7143b092cef5cfbf62b28494075c585d422fe2b0706c275ded9eab59a",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s12-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s12-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s12-f0-candidate.png"
+            },
+            "source_sha256": "0a7864ec9831de5a6e1466cc906aecdc0b8b6174e8464ec0a830a7bf8ae53486",
+            "candidate_sha256": "4f9849f25e02db82f2691c450f6251df5e264829a84e8785b53b6def891550e0",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.06946880507121023,
+              "self_similarity_control": 0.9999998928708465,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.2827709190609361,
+                "ear_263_side": 0.2994308210240538,
+                "mouth_aperture_ratio": 0.019253687187132787,
+                "brow_33_side_ratio": 0.5574901592779493,
+                "brow_263_side_ratio": 0.642013720492417,
+                "pose_reprojection_rmse_px": 14.54957080660218,
+                "pose_reprojection_normalized": 0.06283413145969893,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9887624936192785,
+                    0.015419042374257192,
+                    0.14869762723072164
+                  ],
+                  [
+                    0.0023879859398497627,
+                    -0.996168874289047,
+                    0.08741779807821745
+                  ],
+                  [
+                    0.1494758466607126,
+                    -0.08608035217140889,
+                    -0.9850112406643435
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -175.005597419536,
+                  -8.59655233673666,
+                  0.13837625390924058
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.3115076137308514,
+                "ear_263_side": 0.3093510527548555,
+                "mouth_aperture_ratio": 0.0024958090280846794,
+                "brow_33_side_ratio": 0.5953780275794145,
+                "brow_263_side_ratio": 0.6339415906930613,
+                "pose_reprojection_rmse_px": 14.151193749546383,
+                "pose_reprojection_normalized": 0.060542275581471475,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.9953212136023676,
+                    0.003355101525756231,
+                    0.09656306253874364
+                  ],
+                  [
+                    -0.006756727116305962,
+                    -0.9945334079750728,
+                    0.1042000338779365
+                  ],
+                  [
+                    0.0963847933638145,
+                    -0.1043649544398847,
+                    -0.9898575290883914
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -173.9812948810291,
+                  -5.531028420793333,
+                  -0.38894579473569396
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.028736694669915297,
+                "ear_263_side": 0.009920231730801754,
+                "mouth_aperture_ratio": 0.01675787815904811,
+                "brow_33_side_ratio": 0.03788786830146518,
+                "brow_263_side_ratio": 0.008072129799355676
+              },
+              "head_pose_difference_degrees": 3.2544608304333504,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9332857131958008
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 0,
+          "iou": 0.9366743384940674
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    },
+    {
+      "id": "s13",
+      "input_path": "data/stress/s13.png",
+      "input_sha256": "86e1d6dc3302f669480a2617758125e4f1d1cda6227211f18a663b55b8ecf3db",
+      "source_group": "s01",
+      "transformed": true,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [],
+        "retina_unaligned": [],
+        "retina_aligned": []
+      },
+      "retina_preparation_status": "zero_detections_no_release",
+      "spatial_pairs_yunet_to_retina": [],
+      "arm_status": {
+        "yunet_context": "zero_detections_known_face_no_release",
+        "retina_unaligned": "zero_detections_known_face_no_release",
+        "retina_aligned": "zero_detections_known_face_no_release"
+      }
+    },
+    {
+      "id": "s14",
+      "input_path": "data/stress/s14.png",
+      "input_sha256": "8bc8d25f67b51977fac2fa1bdc95338c238d94c10df167c030a077e3a0148191",
+      "source_group": "s12",
+      "transformed": true,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [],
+        "retina_unaligned": [],
+        "retina_aligned": []
+      },
+      "retina_preparation_status": "zero_detections_no_release",
+      "spatial_pairs_yunet_to_retina": [],
+      "arm_status": {
+        "yunet_context": "zero_detections_known_face_no_release",
+        "retina_unaligned": "zero_detections_known_face_no_release",
+        "retina_aligned": "zero_detections_known_face_no_release"
+      }
+    },
+    {
+      "id": "s15",
+      "input_path": "data/stress/s15.png",
+      "input_sha256": "0d23ae3c3acde49cea203c5832c925332e5fd844838b6f9cb8b52a433973f83d",
+      "source_group": "s01",
+      "transformed": true,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [],
+        "retina_unaligned": [],
+        "retina_aligned": []
+      },
+      "retina_preparation_status": "zero_detections_no_release",
+      "spatial_pairs_yunet_to_retina": [],
+      "arm_status": {
+        "yunet_context": "zero_detections_known_face_no_release",
+        "retina_unaligned": "zero_detections_known_face_no_release",
+        "retina_aligned": "zero_detections_known_face_no_release"
+      }
+    },
+    {
+      "id": "s16",
+      "input_path": "data/stress/s16.png",
+      "input_sha256": "778329b341831531bcf0b9dbcddbaca338254cca70a17fafd5c5b282c351b058",
+      "source_group": "s08",
+      "transformed": true,
+      "release_allowed": false,
+      "arms": {
+        "yunet_context": [
+          {
+            "index": 0,
+            "bbox_xyxy": [
+              138.18869018554688,
+              134.66952514648438,
+              262.6646423339844,
+              294.6239471435547
+            ],
+            "confidence": 0.8995099663734436,
+            "crop_xyxy": [
+              113,
+              102,
+              288,
+              327
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/yunet_context/s16-f0-source.png",
+              "condition": "artifacts/preprocessing-v1/yunet_context/s16-f0-condition.png",
+              "candidate": "artifacts/preprocessing-v1/yunet_context/s16-f0-candidate.png"
+            },
+            "source_sha256": "2ffe01653a037a43d791387b66aa4136589b45a48071376be01ceadb170515d9",
+            "candidate_sha256": "15f54ccc420c525e7b58eb5f828f7d81bc55b0b410af8bbe1d91686cb7a35d56",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.045776047975778056,
+              "self_similarity_control": 0.9999999326663129,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.23117930468527856,
+                "ear_263_side": 0.44342432454346703,
+                "mouth_aperture_ratio": 0.31269653074007686,
+                "brow_33_side_ratio": 0.9753828381301213,
+                "brow_263_side_ratio": 1.5083495146301933,
+                "pose_reprojection_rmse_px": 8.963295139509768,
+                "pose_reprojection_normalized": 0.05285026433278972,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8106026272509067,
+                    -0.1120883444662689,
+                    0.5747691569045253
+                  ],
+                  [
+                    -0.16709439965642164,
+                    -0.9849777282498813,
+                    0.04356990308874996
+                  ],
+                  [
+                    0.5612511401301451,
+                    -0.13135858512679738,
+                    -0.8171548689300567
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -170.86776452843827,
+                  -34.14236664994992,
+                  -11.647576359297327
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.17531591328906695,
+                "ear_263_side": 0.5122671493291204,
+                "mouth_aperture_ratio": 0.2820896534719475,
+                "brow_33_side_ratio": 1.0371812960031948,
+                "brow_263_side_ratio": 1.05985429860545,
+                "pose_reprojection_rmse_px": 12.792139780598834,
+                "pose_reprojection_normalized": 0.06826588389954143,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8339211875655126,
+                    -0.06844426619927624,
+                    0.5476228952059696
+                  ],
+                  [
+                    -0.11826158932470646,
+                    -0.9913919219547491,
+                    0.05618054443722571
+                  ],
+                  [
+                    0.5390636784459886,
+                    -0.11161290027282343,
+                    -0.8348370566002498
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -172.3850407323651,
+                  -32.61992210402689,
+                  -8.07151408332973
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.055863391396211604,
+                "ear_263_side": 0.0688428247856534,
+                "mouth_aperture_ratio": 0.030606877268129384,
+                "brow_33_side_ratio": 0.061798457873073476,
+                "brow_263_side_ratio": 0.4484952160247433
+              },
+              "head_pose_difference_degrees": 3.381701427428592,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.9947316646575928,
+            "initial_baseline_candidate_sha256": "15f54ccc420c525e7b58eb5f828f7d81bc55b0b410af8bbe1d91686cb7a35d56",
+            "initial_baseline_pixel_artifact_identical": true
+          },
+          {
+            "index": 1,
+            "bbox_xyxy": [
+              582.7830200195312,
+              116.50003814697266,
+              699.2255096435547,
+              303.2434616088867
+            ],
+            "confidence": 0.8462791442871094,
+            "crop_xyxy": [
+              559,
+              79,
+              723,
+              341
+            ],
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.031648874282836914
+          }
+        ],
+        "retina_unaligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              579,
+              103,
+              696,
+              302
+            ],
+            "confidence": 0.9998096823692322,
+            "prepared_crop_sha256": "09a00583ec929fc7ee058b81e0203e371150a78824e33e70038cf2781e5c70aa",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.025561809539794922
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              141,
+              129,
+              266,
+              302
+            ],
+            "confidence": 0.9994801878929138,
+            "prepared_crop_sha256": "b6de7866bc6926bfab858cc5cfc371f24353a46b07e3b25fa2ac360484acb2f9",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_unaligned/s16-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_unaligned/s16-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_unaligned/s16-f1-candidate.png"
+            },
+            "source_sha256": "c91227659fa99f3bac9f244241a00b8a18565de1bdb42d73a0c654d0d09867c6",
+            "candidate_sha256": "242e5a19b610e7da74c472b3f31aff2e0cb49b991a772d2c7f80923d1c142cf2",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": -0.08045454775816197,
+              "self_similarity_control": 1.0000000135916594,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.28171158167302823,
+                "ear_263_side": 0.44747721736031654,
+                "mouth_aperture_ratio": 0.37908738216918225,
+                "brow_33_side_ratio": 0.8054380965547872,
+                "brow_263_side_ratio": 1.2098740970360091,
+                "pose_reprojection_rmse_px": 13.370597931849106,
+                "pose_reprojection_normalized": 0.0626455298766465,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.834441452023689,
+                    -0.11437024812428115,
+                    0.5390982373265452
+                  ],
+                  [
+                    -0.15706659590126748,
+                    -0.9870122031587117,
+                    0.03371936042948977
+                  ],
+                  [
+                    0.5282400473237385,
+                    -0.1128111570713476,
+                    -0.8415676415141199
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -172.36508158547602,
+                  -31.88661886417473,
+                  -10.660034215094619
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.2998989238884939,
+                "ear_263_side": 0.427245114752199,
+                "mouth_aperture_ratio": 0.32962976396275,
+                "brow_33_side_ratio": 0.9082782171312291,
+                "brow_263_side_ratio": 1.1835456254406884,
+                "pose_reprojection_rmse_px": 10.478390391354889,
+                "pose_reprojection_normalized": 0.04999955639016498,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8428320846233852,
+                    -0.08473040666266483,
+                    0.5314648015778453
+                  ],
+                  [
+                    -0.11739723776761847,
+                    -0.9926926712534057,
+                    0.027913240663009452
+                  ],
+                  [
+                    0.5252161133228227,
+                    -0.08591867449255297,
+                    -0.8466203491999885
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.20521712496347,
+                  -31.68279303490162,
+                  -7.92965227168126
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.01818734221546564,
+                "ear_263_side": 0.02023210260811753,
+                "mouth_aperture_ratio": 0.04945761820643224,
+                "brow_33_side_ratio": 0.10284012057644198,
+                "brow_263_side_ratio": 0.0263284715953207
+              },
+              "head_pose_difference_degrees": 2.364168465659152,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 1.0401511192321777
+          }
+        ],
+        "retina_aligned": [
+          {
+            "index": 0,
+            "detector_key": "face_1",
+            "bbox_xyxy": [
+              579,
+              103,
+              696,
+              302
+            ],
+            "confidence": 0.9998096823692322,
+            "prepared_crop_sha256": "3d12bb5839e62789f7aeaadc7ac1ab9fb687e0fddf130e97794b98d4bb038464",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "status": "failed",
+            "failure": "source_landmarks_missing",
+            "elapsed_seconds": 0.02409982681274414
+          },
+          {
+            "index": 1,
+            "detector_key": "face_2",
+            "bbox_xyxy": [
+              141,
+              129,
+              266,
+              302
+            ],
+            "confidence": 0.9994801878929138,
+            "prepared_crop_sha256": "66f7b8eb2e93718d115bdfc876b5127b6b5e42c28160b954fc8244093f20290b",
+            "release_allowed": false,
+            "utility": {
+              "status": "indeterminate",
+              "independent_review": "pending_for_this_exact_candidate",
+              "downstream_consistency": "not_implemented",
+              "pass": null
+            },
+            "artifacts": {
+              "source": "artifacts/preprocessing-v1/retina_aligned/s16-f1-source.png",
+              "condition": "artifacts/preprocessing-v1/retina_aligned/s16-f1-condition.png",
+              "candidate": "artifacts/preprocessing-v1/retina_aligned/s16-f1-candidate.png"
+            },
+            "source_sha256": "8a23c1af223a03abaa122e35f7a2e1f9e5cb95eea3c24df7844829943770d453",
+            "candidate_sha256": "4e03827279c89caae462f00f400caa79e6022209c6f25d541183cd53e7e5b936",
+            "identity": {
+              "status": "measured_uncalibrated",
+              "model": "OpenCV SFace 2021dec",
+              "identity_similarity": 0.02722028768994278,
+              "self_similarity_control": 0.9999999318828827,
+              "threshold": null,
+              "pass": null
+            },
+            "state": {
+              "status": "measured_uncalibrated",
+              "original": {
+                "ear_33_side": 0.2687359003947065,
+                "ear_263_side": 0.474548838631641,
+                "mouth_aperture_ratio": 0.3651952846758869,
+                "brow_33_side_ratio": 0.8870238292984344,
+                "brow_263_side_ratio": 1.1652572839555,
+                "pose_reprojection_rmse_px": 13.869177431734917,
+                "pose_reprojection_normalized": 0.06293451550389148,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8573862900540486,
+                    0.0033042953160213676,
+                    0.514662832599964
+                  ],
+                  [
+                    -0.05755078057952399,
+                    -0.9930924769441897,
+                    0.1022508674366222
+                  ],
+                  [
+                    0.5114456542801411,
+                    -0.11728773963769071,
+                    -0.8512737097130626
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -172.15522862535187,
+                  -30.760172109181383,
+                  -3.8401336416872454
+                ]
+              },
+              "candidate": {
+                "ear_33_side": 0.26011371994289784,
+                "ear_263_side": 0.4459804893438932,
+                "mouth_aperture_ratio": 0.29088540388196504,
+                "brow_33_side_ratio": 0.9616450794380516,
+                "brow_263_side_ratio": 1.184206182062847,
+                "pose_reprojection_rmse_px": 10.572855320269749,
+                "pose_reprojection_normalized": 0.0480840742178919,
+                "pose_valid": true,
+                "rotation_matrix": [
+                  [
+                    0.8779781038685978,
+                    -0.002311053585449238,
+                    0.47869521426334244
+                  ],
+                  [
+                    -0.04120155209297153,
+                    -0.9966423425871221,
+                    0.07075643481397065
+                  ],
+                  [
+                    0.47692439781629153,
+                    -0.08184558628159924,
+                    -0.8751253731744892
+                  ]
+                ],
+                "euler_xyz_degrees": [
+                  -174.65698783349302,
+                  -28.48472150026216,
+                  -2.6867918631844683
+                ]
+              },
+              "absolute_delta": {
+                "ear_33_side": 0.008622180451808681,
+                "ear_263_side": 0.028568349287747763,
+                "mouth_aperture_ratio": 0.07430988079392187,
+                "brow_33_side_ratio": 0.07462125013961718,
+                "brow_263_side_ratio": 0.0189488981073469
+              },
+              "head_pose_difference_degrees": 3.148481913188527,
+              "head_pose_status": "approximate",
+              "pose_method": "generic_6_point_SQPNP_LM_assumed_focal_length",
+              "expression_embedding": null,
+              "blendshapes": null,
+              "pass": null,
+              "reference_frame": "preprocessed_crop_not_original_full_image"
+            },
+            "status": "candidate_measured",
+            "elapsed_seconds": 0.8847641944885254
+          }
+        ]
+      },
+      "retina_preparation_status": "prepared",
+      "spatial_pairs_yunet_to_retina": [
+        {
+          "a": 0,
+          "b": 1,
+          "iou": 0.8815890547756854
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "iou": 0.8741212584289951
+        }
+      ],
+      "arm_status": {
+        "yunet_context": "research_only_not_approved",
+        "retina_unaligned": "research_only_not_approved",
+        "retina_aligned": "research_only_not_approved"
+      }
+    }
+  ],
+  "raw_experiment_sha256": "f6f863b675d458869ad5faa4127a724dde792c57564dd125f9f5f3e3afcdf778",
+  "summary": {
+    "yunet_context": {
+      "inputs": 16,
+      "detections": 20,
+      "generated": 13,
+      "identity_measured": 12,
+      "state_measured": 12,
+      "both_measured": 11,
+      "failures": {
+        "source_landmarks_missing": 5,
+        "source_face_too_small": 2
+      },
+      "zero_detection_inputs": [
+        "s13",
+        "s14",
+        "s15"
+      ],
+      "release_allowed": false
+    },
+    "retina_unaligned": {
+      "inputs": 16,
+      "detections": 15,
+      "generated": 8,
+      "identity_measured": 8,
+      "state_measured": 8,
+      "both_measured": 8,
+      "failures": {
+        "source_landmarks_missing": 7
+      },
+      "zero_detection_inputs": [
+        "s01",
+        "s07",
+        "s13",
+        "s14",
+        "s15"
+      ],
+      "release_allowed": false
+    },
+    "retina_aligned": {
+      "inputs": 16,
+      "detections": 15,
+      "generated": 7,
+      "identity_measured": 7,
+      "state_measured": 7,
+      "both_measured": 7,
+      "failures": {
+        "source_landmarks_missing": 8
+      },
+      "zero_detection_inputs": [
+        "s01",
+        "s07",
+        "s13",
+        "s14",
+        "s15"
+      ],
+      "release_allowed": false
+    }
+  }
+}

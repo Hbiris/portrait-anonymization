@@ -1,5 +1,7 @@
 # Phase 0 实测报告
 
+> 本文保留初始实验记录。官方 RetinaFace 裁剪/对齐对照现已完成，最新结论与逐图指标见 [预处理对照报告](PREPROCESSING_REPORT.md)。
+
 结论：**官方 checkpoint 已在本机运行；当前 baseline 不值得直接进入完整 Phase 1 服务开发。** 先继续定向模型/预处理评估和真实业务数据验收。没有创建 FastAPI、OCR 或服务架构。
 
 ## 实际环境与复现范围
