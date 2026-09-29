@@ -66,6 +66,7 @@ def export(name='preprocessing-v1'):
         writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
     (ROOT/'artifacts'/name/'review-template.json').write_text(json.dumps(reviews,indent=2)+'\n')
     page='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Phase 0 预处理对照</title><style>body{font-family:system-ui;margin:24px;background:#f5f7fa;color:#182131}h1{font-size:26px}.arms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}article{padding:12px;background:white;border:1px solid #ddd;overflow-wrap:anywhere}.pair{display:flex}figure{margin:3px;width:50%}img{width:100%}p{font-size:13px}section{margin-top:36px}@media(max-width:900px){.arms{grid-template-columns:1fr}}</style><h1>Phase 0 · 16 张公开样例，三组预处理对照</h1><p>研究候选全部禁止放行。source 是各组预处理后的裁剪，不是整图。数值未经业务阈值校准；null / None 为不可测。生成肤色、纹理和皱纹不能用作真实护理信息。</p><p><a href="PREPROCESSING_REPORT.md">报告</a> · <a href="ATTRIBUTION.md">来源与许可</a> · <a href="evidence/preprocessing-v1/metrics.csv">逐脸指标</a></p>'''+''.join(sections)+'</html>'
+    page = page.replace('evidence/preprocessing-v1/', 'evidence/'+html.escape(name, quote=True)+'/')
     (ROOT/'gallery-preprocessing.html').write_text(page)
     print(json.dumps(evidence['summary'],indent=2))
 
